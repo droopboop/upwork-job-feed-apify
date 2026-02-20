@@ -1,0 +1,146 @@
+{
+    "actorSpecification": 1,
+    "title": "Upwork Job Feed Dataset",
+    "description": "Dataset items produced by the Upwork Job Feed Actor.",
+    "fields": {
+        "type": "object",
+        "properties": {
+            "publish_at": { "type": ["string"], "format": "date-time" },
+            "upwork_id": { "type": ["string"] },
+            "link": { "type": ["string"], "format": "uri" },
+            "title": { "type": ["string"] },
+            "description": { "type": ["string"] },
+            "experience_level": { "type": ["string"] },
+            "job_type": { "type": ["string"] },
+            "hourly_rate_from": { "type": ["number", "null"] },
+            "hourly_rate_to": { "type": ["number", "null"] },
+            "fixed_budget": { "type": ["number", "null"] },
+            "project_length": { "type": ["string", "null"] },
+            "workload": { "type": ["string", "null"] },
+            "contract_to_hire": { "type": ["boolean"] },
+            "has_questions": { "type": ["boolean"] },
+            "has_attachments": { "type": ["boolean"] },
+            "client": {
+                "type": ["object"],
+                "properties": {
+                    "payment_verified": { "type": ["boolean"] },
+                    "country": { "type": ["string"] },
+                    "city": { "type": ["string", "null"] },
+                    "rating": { "type": ["number", "null"] },
+                    "review_count": { "type": ["integer", "null"] },
+                    "avg_hourly_rate": { "type": ["number", "null"] },
+                    "paid_hours": { "type": ["number", "null"] },
+                    "total_spent": { "type": ["number", "null"] },
+                    "hire_rate": { "type": ["number", "null"] },
+                    "registered_at": { "type": ["string", "null"], "format": "date" },
+                    "posted_jobs_count": { "type": ["integer", "null"] },
+                    "open_jobs_count": { "type": ["integer", "null"] },
+                    "hires_count": { "type": ["integer", "null"] },
+                    "active_hires_count": { "type": ["integer", "null"] },
+                    "work_history_count": { "type": ["number", "null"] },
+                    "phone_verified": { "type": ["boolean", "null"] },
+                    "enterprise": { "type": ["boolean", "null"] },
+                    "company_size": { "type": ["string", "null"] },
+                    "company_industry": { "type": ["string", "null"] }
+                }
+            },
+            "category": {
+                "type": ["object"],
+                "properties": {
+                    "name": { "type": ["string"] },
+                    "upwork_id": { "type": ["string"] },
+                    "upwork_slug": { "type": ["string"] },
+                    "parent_category": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "name": { "type": ["string"] },
+                            "upwork_id": { "type": ["string"] },
+                            "upwork_slug": { "type": ["string"] }
+                        }
+                    }
+                }
+            },
+            "skills": {
+                "type": ["array", "null"],
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "upwork_id": { "type": ["string"] },
+                        "name": { "type": ["string"] },
+                        "parent_skill": {
+                            "type": ["object", "null"],
+                            "properties": {
+                                "upwork_id": { "type": ["string"] },
+                                "name": { "type": ["string"] }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "description": "Common fields for quick inspection.",
+            "transformation": {
+                "fields": [
+                    "publish_at",
+                    "upwork_id",
+                    "link",
+                    "title",
+                    "experience_level",
+                    "job_type",
+                    "hourly_rate_from",
+                    "hourly_rate_to",
+                    "fixed_budget",
+                    "project_length",
+                    "workload",
+                    "contract_to_hire",
+                    "has_questions",
+                    "has_attachments",
+                    "client.country",
+                    "client.city",
+                    "client.payment_verified",
+                    "client.rating",
+                    "client.review_count",
+                    "client.total_spent",
+                    "category.name",
+                    "category.upwork_slug",
+                    "category.parent_category.name",
+                    "skills"
+                ],
+                "flatten": ["client", "category", "category.parent_category"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "publish_at": { "label": "Published", "format": "date" },
+                    "upwork_id": { "label": "Upwork ID" },
+                    "link": { "label": "Link", "format": "link" },
+                    "title": { "label": "Title" },
+                    "experience_level": { "label": "Experience" },
+                    "job_type": { "label": "Type" },
+                    "hourly_rate_from": { "label": "Hourly From", "format": "number" },
+                    "hourly_rate_to": { "label": "Hourly To", "format": "number" },
+                    "fixed_budget": { "label": "Fixed Budget", "format": "number" },
+                    "project_length": { "label": "Project Length" },
+                    "workload": { "label": "Workload" },
+                    "contract_to_hire": { "label": "Contract To Hire" },
+                    "has_questions": { "label": "Has Questions" },
+                    "has_attachments": { "label": "Has Attachments" },
+                    "client.country": { "label": "Client Country" },
+                    "client.city": { "label": "Client City" },
+                    "client.payment_verified": { "label": "Payment Verified" },
+                    "client.rating": { "label": "Client Rating", "format": "number" },
+                    "client.review_count": { "label": "Client Reviews", "format": "number" },
+                    "client.total_spent": { "label": "Client Spend", "format": "number" },
+                    "category.name": { "label": "Category" },
+                    "category.upwork_slug": { "label": "Category Slug" },
+                    "category.parent_category.name": { "label": "Parent Category" },
+                    "skills": { "label": "Skills", "format": "array" }
+                }
+            }
+        }
+    }
+}

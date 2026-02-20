@@ -1,0 +1,19 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Upwork Job Feed Output",
+    "description": "Actor output locations (dataset items + run summary record).",
+    "properties": {
+        "results": {
+            "title": "Results Dataset",
+            "description": "Each job item is stored as a separate dataset record.",
+            "type": "string",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "summary": {
+            "title": "Run Summary",
+            "description": "Summary stored in the default key-value store (key: OUTPUT).",
+            "type": "string",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+        }
+    }
+}
