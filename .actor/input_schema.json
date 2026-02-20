@@ -1,0 +1,19 @@
+{
+    "title": "Job Feed Bridge Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "additionalProperties": false,
+    "properties": {
+        "searchLink": {
+            "title": "Search Link",
+            "type": "string",
+            "description": "Upwork search URL passed as search_link."
+        },
+        "cursor": {
+            "title": "Cursor",
+            "type": ["string", "null"],
+            "description": "Optional upwork_id cursor from previous next_cursor."
+        }
+    },
+    "required": ["searchLink"]
+}

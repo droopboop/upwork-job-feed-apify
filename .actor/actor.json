@@ -1,0 +1,12 @@
+{
+    "actorSpecification": 1,
+    "name": "upwork-job-feed-apify",
+    "title": "Upwork Job | Free | No Cookies | No timeouts",
+    "description": "Extract Upwork job posts without login or cookies. Only 2 parameters required. Clean JSON output for automation.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "js-empty"
+    },
+    "input": "./input_schema.json"
+}

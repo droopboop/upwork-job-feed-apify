@@ -1,0 +1,23 @@
+{
+    "name": "upwork-job-feed-apify",
+    "version": "0.1.0",
+    "description": "Extract Upwork job posts without login or cookies. Only 2 parameters required. Clean JSON output for automation.",
+    "type": "module",
+    "main": "src/main.js",
+    "scripts": {
+        "start": "node src/main.js",
+        "test": "node --test",
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "dependencies": {
+        "apify": "^3.6.0",
+        "dotenv": "^16.4.5"
+    },
+    "devDependencies": {
+        "prettier": "^3.4.2"
+    }
+}
