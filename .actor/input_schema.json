@@ -12,7 +12,8 @@
         },
         "cursor": {
             "title": "Cursor",
-            "type": ["string", "null"],
+            "type": "string",
+            "nullable": true,
             "description": "Optional upwork_id cursor from previous next_cursor.",
             "editor": "textfield"
         }
