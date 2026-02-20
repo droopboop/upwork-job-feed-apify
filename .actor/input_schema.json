@@ -7,12 +7,14 @@
         "searchLink": {
             "title": "Search Link",
             "type": "string",
-            "description": "Upwork search URL passed as search_link."
+            "description": "Upwork search URL passed as search_link.",
+            "editor": "textfield"
         },
         "cursor": {
             "title": "Cursor",
             "type": ["string", "null"],
-            "description": "Optional upwork_id cursor from previous next_cursor."
+            "description": "Optional upwork_id cursor from previous next_cursor.",
+            "editor": "textfield"
         }
     },
     "required": ["searchLink"]
